@@ -1,3 +1,3 @@
-# shlomo
-## Description
+
+# Description
 Sample Dotnet MVC project using AdminLTE
