@@ -1,10 +1,12 @@
 ﻿using System.Diagnostics;
+using System.Data;
 using Microsoft.AspNetCore.Mvc;
 using ASP.NETCore4shlomo.Models;
 
+
 namespace ASP.NETCore4shlomo.Controllers;
 
-public class HomeController : Controller
+public class HomeController : Microsoft.AspNetCore.Mvc.Controller
 {
     private readonly ILogger<HomeController> _logger;
 
@@ -28,4 +30,6 @@ public class HomeController : Controller
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
+    
+
 }

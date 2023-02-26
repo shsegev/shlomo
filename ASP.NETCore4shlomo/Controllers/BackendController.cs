@@ -1,19 +1,23 @@
-using System.Diagnostics;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
-using Microsoft.AspNetCore.Mvc;
-using ASP.NETCore4shlomo.Models;
-
 namespace ASP.NETCore4shlomo.Controllers;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using System;
 
-public class BackendController : Controller
+[Route("api/[controller]")]
+[ApiController]
+public class BackendController: Controller
 {
-    private readonly ILogger<BackendController> _logger;
-
-    public BackendController(ILogger<BackendController> logger)
+    [HttpGet]
+    public async Task<ActionResult> GetChartData()
     {
-        _logger = logger;
+        try
+        {
+            return Ok("{\"data\": \"ok\"}");
+        }
+        catch (Exception)
+        {
+            return StatusCode(StatusCodes.Status500InternalServerError, "oops");
+        }
     }
-    
+
 }
