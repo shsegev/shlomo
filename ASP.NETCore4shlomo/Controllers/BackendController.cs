@@ -8,11 +8,15 @@ using System;
 public class BackendController: Controller
 {
     [HttpGet]
-    public async Task<ActionResult> GetChartData()
+    public IActionResult GetChartData()
     {
         try
         {
-            return Ok("{\"data\": \"ok\"}");
+            var response = new Dictionary<string, List<int>>
+            {
+                {"data", new List<int> {28, 48, 40, 19, 86, 27, 90}}
+            };
+            return new JsonResult(response);
         }
         catch (Exception)
         {
